@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "lz-simple-crm": {
+      "hosting": {
+        "simple-crm": [
+          "lz-simple-crm"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "lz-simple-crm"
+  }
+}
