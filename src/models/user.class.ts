@@ -5,6 +5,7 @@ export class User {
     street: string;
     zipCode: string;  // Ausländische Adressen haben ggf. Zahlen und Buchstaben, daher string
     city: string;
+    email: string;
 
     constructor(obj?: any) {
         // Das ? hinter obj bedeutet, daß der Parameter optional ist
@@ -14,6 +15,7 @@ export class User {
         this.street = obj ? obj.street : '';
         this.zipCode = obj ? obj.zipCode : '';
         this.city = obj ? obj.city : '';
+        this.email = obj ? obj.email : '';
     }
 
     public toJSON() {
@@ -23,7 +25,8 @@ export class User {
             birthDate: this.birthDate,
             street: this.street,
             zipCode: this.zipCode,
-            city: this.city
+            city: this.city,
+            email: this.email
         }
     }
 }
