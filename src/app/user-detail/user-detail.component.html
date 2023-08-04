@@ -1,4 +1,12 @@
 <mat-card class="user-profile-header">
+    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="userMenu">
+        <!-- Hinweis: Das "menu" beim Trigger bezieht sich auf den Punkt #menu beim <mat-menu> etwas weiter unten -->
+        <mat-icon>more_horiz</mat-icon>
+    </button>
+    <mat-menu #userMenu="matMenu">
+        <button mat-menu-item (click)="editUserDetail()">Edit</button>
+    </mat-menu>
+
     <img src="./assets/img/profile.png" alt="Profilbild">
     <div class="user-details">
         <h2>{{ curUser.firstName }} {{ curUser.lastName }}</h2>
@@ -7,6 +15,14 @@
 </mat-card>
 
 <mat-card class="mt-32">
+    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="addressMenu">
+        <!-- Hinweis: Das "menu" beim Trigger bezieht sich auf den Punkt #menu beim <mat-menu> etwas weiter unten -->
+        <mat-icon>more_horiz</mat-icon>
+    </button>
+    <mat-menu #addressMenu="matMenu">
+        <button mat-menu-item (click)="editMenu()">Edit</button>
+    </mat-menu>
+
     <mat-card-title class="mt-8 ml-16">
         Address
     </mat-card-title>
