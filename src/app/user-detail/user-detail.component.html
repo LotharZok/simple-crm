@@ -1,0 +1,17 @@
+<mat-card class="user-profile-header">
+    <img src="./assets/img/profile.png" alt="Profilbild">
+    <div class="user-details">
+        <h2>{{ curUser.firstName }} {{ curUser.lastName }}</h2>
+        {{ curUser.email }}
+    </div>
+</mat-card>
+
+<mat-card class="mt-32">
+    <mat-card-title class="mt-8 ml-16">
+        Address
+    </mat-card-title>
+    <mat-card-content class="mt-8">
+        <span>{{ curUser.street }}</span><br>
+        <span>{{ curUser.zipCode }} {{ curUser.city }}</span>
+    </mat-card-content>
+</mat-card>

@@ -29,10 +29,10 @@ export class DialogAddUserComponent {
 
         addDoc(this.userCollection, this.user.toJSON())
         .then((result: any) => {
-                  console.log('Adding user finished:', result);
-                  this.loading = false;
-                  this.dialogRef.close();
-              });
+            console.log('Adding user finished:', result);
+            this.loading = false;
+            this.dialogRef.close();
+        });
         // original-code von Junus: Alte Version von Firebase, funktioniert so nicht (mehr)
         // this.firestore
         //     .collection('users')
@@ -45,5 +45,7 @@ export class DialogAddUserComponent {
 
     cancelEdit() {
         this.dialogRef.close();
+        // Statt des Aufrufs der Funktion cancelEdit() könnte der Schließen-Befehl auch direkt im Click-Event in der html-Datei eingetragen werden.
+        // Dennoch hier eingetragen, damit ich, wenn gewünscht, weitere Funktionen beim Schließen einbauen kann.
     }
 }

@@ -1,0 +1,32 @@
+.user-profile-header {
+    min-height: 250px;
+    background-color: #528070;
+    color: white;
+
+    padding-left: 8px;
+    padding-bottom: 8px;
+
+    display: flex;
+    flex-direction: row;  // Komisch ... ohne diese Angabe klappt es nicht...
+    align-items: flex-end;
+
+    img {
+        height: 100px;
+        width: 100px;
+        object-fit: cover;
+        border-radius: 100%;
+    }
+}
+
+.user-details {
+    margin-left: 32px;
+    height: 100px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h2 {
+        margin-bottom: 0;
+    }
+}
