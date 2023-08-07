@@ -25,7 +25,7 @@ export class DialogAddUserComponent {
     saveUser() {
         this.user.birthDate = this.birthDate.getTime(); // Wandelt das Datum in eine Zahl (Millisekunden seit dem 1.1.1970) um und weist diese dem user.birthDate zu
         this.loading = true;
-        console.log('current user:', this.user);
+        // console.log('current user:', this.user);
 
         addDoc(this.userCollection, this.user.toJSON())
         .then((result: any) => {

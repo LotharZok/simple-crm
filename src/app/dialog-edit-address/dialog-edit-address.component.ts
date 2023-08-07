@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Firestore, collection, doc, updateDoc } from '@angular/fire/firestore';
 import { MatDialogRef } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/models/user.class';
 
 @Component({
@@ -9,7 +11,10 @@ import { User } from 'src/models/user.class';
 })
 export class DialogEditAddressComponent {
     user!: User;
+    docId: string = '';
     loading: boolean = false;
+    firestore: Firestore = inject(Firestore);
+    userCollection = collection(this.firestore, 'users');
 
     constructor(public dialogRef: MatDialogRef<DialogEditAddressComponent>) {
 
@@ -20,6 +25,13 @@ export class DialogEditAddressComponent {
     }
 
     saveUser() {
-
+        this.loading = true;
+        console.log('docID: ', this.docId);
+        const userRef = doc(this.userCollection, this.docId);
+        updateDoc(userRef, this.user.toJSON())
+        .then( () => {
+            this.loading = false;
+            this.dialogRef.close();
+        });
     }
 }
