@@ -7,7 +7,7 @@
 }
 
 .mat-drawer-sidenav {
-    width: 300px;
+    width: 260px;
 }
 .logo-container {
     background-color: #3f51b5;
@@ -55,4 +55,8 @@ mat-toolbar-row {
     // padding-left: 56px;
     // padding-top: 16px;
     padding: 16px 56px;
+}
+
+.smallerFont {
+    font-size: 11px;
 }

@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { CompaniesComponent } from './companies/companies.component';
 import { UserComponent } from './user/user.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -34,7 +34,7 @@ import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.com
 @NgModule({
     declarations: [
         AppComponent,
-        DashboardComponent,
+        CompaniesComponent,
         UserComponent,
         DialogAddUserComponent,
         UserDetailComponent,
