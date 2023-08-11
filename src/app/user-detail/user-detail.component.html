@@ -1,7 +1,8 @@
 <mat-card class="user-profile-header">
-    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="userMenu">
-        <!-- Hinweis: Das "menu" beim Trigger bezieht sich auf den Punkt #menu beim <mat-menu> etwas weiter unten -->
-        <mat-icon>more_horiz</mat-icon>
+    <button mat-icon-button class="pin-right-upper-corner" (click)="editUserDetail()">
+    <!-- <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="userMenu"> -->
+        <!-- Hinweis: Das "userMenu" beim Trigger bezieht sich auf den Punkt #userMenu beim <mat-menu> etwas weiter unten -->
+        <mat-icon>edit</mat-icon>
     </button>
     <mat-menu #userMenu="matMenu">
         <button mat-menu-item (click)="editUserDetail()">Edit</button>
@@ -15,9 +16,10 @@
 </mat-card>
 
 <mat-card class="mt-32">
-    <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="addressMenu">
-        <!-- Hinweis: Das "menu" beim Trigger bezieht sich auf den Punkt #menu beim <mat-menu> etwas weiter unten -->
-        <mat-icon>more_horiz</mat-icon>
+    <button mat-icon-button class="pin-right-upper-corner" (click)="editMenu()">
+    <!-- <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="addressMenu"> -->
+        <!-- Hinweis: Das "addressMenu" beim Trigger bezieht sich auf den Punkt #addressMenu beim <mat-menu> etwas weiter unten -->
+        <mat-icon>edit</mat-icon>
     </button>
     <mat-menu #addressMenu="matMenu">
         <button mat-menu-item (click)="editMenu()">Edit</button>

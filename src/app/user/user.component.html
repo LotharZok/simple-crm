@@ -5,11 +5,13 @@
                 <th>Name</th>
                 <th>E-Mail</th>
                 <th>City</th>
+                <th></th>
             </tr>
             <tr *ngFor="let user of allUsers" [routerLink]="['/user/' + user.id]">
                 <td>{{ user.firstName }} {{ user.lastName }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.city }}</td>
+                <td><mat-icon matListItemIcon class="listIcon" (click)="deleteUser(user.id)">delete</mat-icon></td>
             </tr>
         </table>
     </mat-card-content>

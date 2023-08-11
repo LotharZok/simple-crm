@@ -48,46 +48,26 @@ export class UserDetailComponent {
     }
 
     editUserDetail() {
-        // console.log('birthday: ', this.curUser.birthDate);
-        // let tmpUser = new User(this.curUser.toJSON());
-        // let tmpDocId = this.docId;
-        // let tmpBirthDate = new Date(this.curUser.birthDate);
-
-        // TEST
-        const dialogConfig = new MatDialogConfig();
-        dialogConfig.data = {
-            docId: this.docId,
-            firstName: this.curUser.firstName,
-            lastName: this.curUser.lastName,
-            email: this.curUser.email,
-            birthDate: new Date(this.curUser.birthDate),
-            street: this.curUser.street,
-            zipCode: this.curUser.zipCode,
-            city: this.curUser.city
-        }
-
-        let dialog = this.dialog.open(DialogEditUserComponent, dialogConfig)
-            .afterClosed()
-            .subscribe( (shouldReload: boolean) => {
-                dialog.unsubscribe();
-                if (shouldReload) window.location.reload();
-            });
-
-
-        // let dialog = this.dialog.open(DialogEditUserComponent);
+        let dialog = this.dialog.open(DialogEditUserComponent);
+        dialog.afterClosed().subscribe( result => {  // Auf diese Weise kann ich direkt auf Änderungen reagieren
+            this.getUser();  // getUser holt ja die User-Daten, das nutze ich hier zur Aktualisierung
+        });
 
         // dialog.componentInstance.user = this.curUser;
         // Problem mit der obigen Zeile: Ich übergebe eine Instanz des aktuellen Objekts, d.h. wenn ich dort etwas ändere (ngModel!!) wird es direkt auch im Objekt geändert.
         // Ich MUSS also eine Kopie übergeben, da ich sonst auch bei einem Abbruch im Dialog die Daten geändert habe.
 
-        // dialog.componentInstance.user = new User(this.curUser.toJSON());
-        // dialog.componentInstance.docId = this.docId;
-        // dialog.componentInstance.birthDate = new Date(this.curUser.birthDate);
+        dialog.componentInstance.user = new User(this.curUser.toJSON());
+        dialog.componentInstance.docId = this.docId;
+        dialog.componentInstance.birthDate = new Date(this.curUser.birthDate);
         // Auf diese Weise, erstelle ich eine KOPIE des Nutzers
     }
 
     editMenu() {
         const dialog = this.dialog.open(DialogEditAddressComponent);
+        dialog.afterClosed().subscribe( result => {  // Auf diese Weise kann ich direkt auf Änderungen reagieren
+            this.getUser();  // getUser holt ja die User-Daten, das nutze ich hier zur Aktualisierung
+        });
         dialog.componentInstance.user = new User(this.curUser.toJSON());  // s.o. zur Erläuterung
         dialog.componentInstance.docId = this.docId;
     }
