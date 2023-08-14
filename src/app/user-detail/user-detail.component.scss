@@ -31,8 +31,20 @@
     }
 }
 
+.personCards {
+    display: flex;
+    justify-content: space-between;
+    grid-template-columns: 33%;
+    gap: 16px;
+}
+
 .pin-right-upper-corner {
     position: absolute;
     top: 0;
     right: 0;
+}
+
+.field-label {
+    display: inline-block;
+    width: 60px;
 }

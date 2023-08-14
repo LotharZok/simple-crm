@@ -15,6 +15,8 @@ import { user } from '@angular/fire/auth';
 export class UserDetailComponent {
     docId:any = '';
     curUser:User = new User();
+    userBirthDate!: Date;
+    userBirthDateString: String = '';
 
     constructor(private route:ActivatedRoute, private firestore: Firestore, public dialog: MatDialog) {
 
@@ -33,8 +35,11 @@ export class UserDetailComponent {
         const userRef = doc(userCollection, this.docId);             // Referenz auf das Dokument
         const userDoc = await getDoc(userRef);                       // Das Dokument selbst (Muss in diesen zwei Schritten gemacht werden)
         const userData = userDoc.data();                             // Zugriff auf die (lesbaren) Daten in JSON-Format
+        // console.log('userData: ', userData);
         this.curUser = new User(userData);                           // Speichern der Userdaten in einer Variablen der Klasse User (user.class.ts)
                                                                      // So kann ich im html mit z.B. {{ curUser.lastName }} auf den Namen zugreifen
+        this.userBirthDate = new Date(this.curUser.birthDate);
+        this.userBirthDateString = this.userBirthDate.toISOString().substring(0, 10);
         // Aber was ist mit dem automatischen Update? Wie mache ich ein Subscribe auf ein einzelnes Dokument?
 
         // -- Das ist der Code von Junus, der aber so nicht funktioniert

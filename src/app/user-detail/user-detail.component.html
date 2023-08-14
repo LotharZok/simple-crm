@@ -1,6 +1,6 @@
 <mat-card class="user-profile-header">
     <button mat-icon-button class="pin-right-upper-corner" (click)="editUserDetail()">
-    <!-- <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="userMenu"> -->
+        <!-- <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="userMenu"> -->
         <!-- Hinweis: Das "userMenu" beim Trigger bezieht sich auf den Punkt #userMenu beim <mat-menu> etwas weiter unten -->
         <mat-icon>edit</mat-icon>
     </button>
@@ -15,21 +15,56 @@
     </div>
 </mat-card>
 
-<mat-card class="mt-32">
-    <button mat-icon-button class="pin-right-upper-corner" (click)="editMenu()">
-    <!-- <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="addressMenu"> -->
-        <!-- Hinweis: Das "addressMenu" beim Trigger bezieht sich auf den Punkt #addressMenu beim <mat-menu> etwas weiter unten -->
-        <mat-icon>edit</mat-icon>
-    </button>
-    <mat-menu #addressMenu="matMenu">
-        <button mat-menu-item (click)="editMenu()">Edit</button>
-    </mat-menu>
+<div class="personCards">
+    <mat-card class="mt-32 w-100">
+        <button mat-icon-button class="pin-right-upper-corner" (click)="editMenu()">
+            <!-- <button mat-icon-button class="pin-right-upper-corner" [matMenuTriggerFor]="addressMenu"> -->
+            <!-- Hinweis: Das "addressMenu" beim Trigger bezieht sich auf den Punkt #addressMenu beim <mat-menu> etwas weiter unten -->
+            <mat-icon>edit</mat-icon>
+        </button>
+        <mat-menu #addressMenu="matMenu">
+            <button mat-menu-item (click)="editMenu()">Edit</button>
+        </mat-menu>
 
+        <mat-card-title class="mt-8 ml-16">
+            Address
+        </mat-card-title>
+        <mat-card-content class="mt-8">
+            <span>{{ curUser.street }}</span><br>
+            <span>{{ curUser.zipCode }} {{ curUser.city }}</span><br>
+            <span>{{ curUser.country }}</span>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card class="mt-32 w-100">
+        <mat-card-title class="mt-8 ml-16">
+            Communication
+        </mat-card-title>
+        <mat-card-content class="mt-8">
+            <span class="field-label">Mail</span><span>{{ curUser.email }}</span><br>
+            <span class="field-label">Phone</span><span>{{ curUser.phone }}</span><br>
+            <span class="field-label">Mobile</span><span>{{ curUser.mobile }}</span>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card class="mt-32 w-100">
+        <mat-card-title class="mt-8 ml-16">
+            Personal Information
+        </mat-card-title>
+        <mat-card-content class="mt-8">
+            <span class="field-label">Birthday</span><span>{{ userBirthDateString }}</span><br>
+            <span class="field-label">Title</span><span>{{ curUser.title }}</span>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<mat-card class="mt-16">
     <mat-card-title class="mt-8 ml-16">
-        Address
+        Description
     </mat-card-title>
     <mat-card-content class="mt-8">
-        <span>{{ curUser.street }}</span><br>
-        <span>{{ curUser.zipCode }} {{ curUser.city }}</span>
+        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis deserunt recusandae facere accusamus dicta
+            nihil, corporis ex,
+            numquam impedit provident vero sint doloremque, vitae a. Ipsa quaerat corrupti optio quidem!</span>
     </mat-card-content>
 </mat-card>

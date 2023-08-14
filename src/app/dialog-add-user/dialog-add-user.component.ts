@@ -22,7 +22,8 @@ export class DialogAddUserComponent {
     }
 
     saveUser() {
-        this.user.birthDate = this.birthDate.getTime(); // Wandelt das Datum in eine Zahl (Millisekunden seit dem 1.1.1970) um und weist diese dem user.birthDate zu
+        if (this.birthDate) this.user.birthDate = this.birthDate.getTime(); // Wandelt das Datum in eine Zahl (Millisekunden seit dem 1.1.1970) um und weist diese dem user.birthDate zu
+        this.user.type = 'user';  // Festgelegt, weil ein User erzeugt wird
         this.loading = true;
         // console.log('current user:', this.user);
 

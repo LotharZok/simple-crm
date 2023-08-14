@@ -30,6 +30,8 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-address.component';
 import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
+import { TodosComponent } from './todos/todos.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
     declarations: [
@@ -39,7 +41,8 @@ import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.com
         DialogAddUserComponent,
         UserDetailComponent,
         DialogEditAddressComponent,
-        DialogEditUserComponent
+        DialogEditUserComponent,
+        TodosComponent
     ],
     imports: [
         BrowserModule,
@@ -62,7 +65,8 @@ import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.com
         provideFirestore(() => getFirestore()),
         MatProgressBarModule,
         MatCardModule,
-        MatMenuModule
+        MatMenuModule,
+        MatTableModule
     ],
     providers: [],
     bootstrap: [AppComponent]

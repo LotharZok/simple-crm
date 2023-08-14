@@ -8,9 +8,9 @@
                 <th></th>
             </tr>
             <tr *ngFor="let user of allUsers" [routerLink]="['/user/' + user.id]">
-                <td>{{ user.firstName }} {{ user.lastName }}</td>
+                <td>{{ user.lastName }}, {{ user.firstName }}</td>
                 <td>{{ user.email }}</td>
-                <td>{{ user.city }}</td>
+                <td>{{ user.zipCode }} {{ user.city }}</td>
                 <td><mat-icon matListItemIcon class="listIcon" (click)="deleteUser(user.id)">delete</mat-icon></td>
             </tr>
         </table>
