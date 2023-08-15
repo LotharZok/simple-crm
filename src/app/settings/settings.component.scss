@@ -17,7 +17,12 @@
     // margin-bottom: 4px;
 }
 
-.cardContent {
+.statusContent {
+    display: flex;
+    // justify-content: space-between;
+    // gap: 8px;
+}
+.colourContent {
     display: flex;
     gap: 8px;
 }
