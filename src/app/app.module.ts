@@ -32,6 +32,7 @@ import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-ad
 import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
 import { TodosComponent } from './todos/todos.component';
 import { MatTableModule } from '@angular/material/table';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
     declarations: [
@@ -42,7 +43,8 @@ import { MatTableModule } from '@angular/material/table';
         UserDetailComponent,
         DialogEditAddressComponent,
         DialogEditUserComponent,
-        TodosComponent
+        TodosComponent,
+        SettingsComponent
     ],
     imports: [
         BrowserModule,

@@ -48,3 +48,11 @@
     display: inline-block;
     width: 60px;
 }
+
+
+@media (max-width: 1100px) {
+    .personCards {
+        flex-wrap: wrap;
+        gap: 0;
+    }
+}

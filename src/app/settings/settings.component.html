@@ -1,0 +1,48 @@
+<div class="settingsContent">
+    <mat-card>
+        <mat-card-header class="settingsHeader">
+            <mat-card-title>Settings</mat-card-title>
+            <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+        </mat-card-header>
+        <!-- <mat-card-actions>
+        <button mat-button>Cancel</button>
+        <button mat-button>Save</button>
+    </mat-card-actions> -->
+    </mat-card>
+
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title class="statusHeader">Status</mat-card-title>
+        </mat-card-header>
+        <div *ngFor="let status of statuses">
+            <mat-card-content>
+                <mat-card>
+                    <mat-card-content class="cardContent">
+                        <div class="cardHeader w-80px">{{ status.name }}</div>
+                        <div class="w-80px">Level: {{ status.level }}</div>
+                        <div class="w-110px">Colour: #{{ status.colour }}</div>
+                        <div class="colorBox" [ngStyle]="{'background-color': '#'+status.colour}">&nbsp;</div>
+                    </mat-card-content>
+                </mat-card>
+            </mat-card-content>
+        </div>
+    </mat-card>
+
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title class="statusHeader">Priority</mat-card-title>
+        </mat-card-header>
+        <div *ngFor="let prio of priorities">
+            <mat-card-content>
+                <mat-card>
+                    <mat-card-content class="cardContent">
+                        <div class="cardHeader w-80px">{{ prio.name }}</div>
+                        <div class="w-80px">Level: {{ prio.level }}</div>
+                        <div class="w-110px">Colour: #{{ prio.colour }}</div>
+                        <div class="colorBox" [ngStyle]="{'background-color': '#'+prio.colour}">&nbsp;</div>
+                    </mat-card-content>
+                </mat-card>
+            </mat-card-content>
+        </div>
+    </mat-card>
+</div>

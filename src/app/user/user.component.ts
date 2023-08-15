@@ -26,7 +26,7 @@ export class UserComponent {
      */
     constructor(public dialog: MatDialog) {
         this.users$.subscribe((changes: any) => {         // Abonnieren der Änderung in den Daten users$ (s.o.)
-            console.log('Received changes: ', changes);
+            // console.log('Received changes: ', changes);
             this.allUsers = changes;                       // Zuweisen der einzelnen Einträge in das Array allUsers
         });
     }
