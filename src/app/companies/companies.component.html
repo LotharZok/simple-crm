@@ -1,1 +1,76 @@
-<p>Here the list of companies and their employees will be displayed</p>
+<mat-card>
+    <mat-card-content>
+        <table class="userTable">
+            <tr>
+                <th class="expandColumn"></th>
+                <th colspan="2">Name</th>
+                <th>City</th>
+                <th>Contact</th>
+                <th></th>
+            </tr>
+            <!-- <tr *ngFor="let comp of allCompanies" [routerLink]="['/dashboard/' + comp.id]"> -->
+
+            <!-- // ---------- TEST ---------- // -->
+            <ng-container *ngFor="let comp of testCompanies">
+                <tr>
+                    <td (click)="comp.expanded = !comp.expanded" class="expandColumn">{{ comp.expanded ? '&#9660;' : '&#9654;' }}</td>
+                    <td colspan="2">{{ comp.name }}</td>
+                    <td>{{ comp.city }}</td>
+                    <td>{{ comp.web }}</td>
+                    <td><mat-icon matListItemIcon class="listIcon" (click)="deleteCompany('comp.id')">delete</mat-icon></td>
+                </tr>
+                <ng-container *ngIf="comp.expanded">
+                    <ng-container *ngFor="let dept of comp.departments">
+                        <tr>
+                            <td class="expandColumn"></td>
+                            <td (click)="dept.expanded = !dept.expanded" class="expandColumn">{{ dept.expanded ? '&#9660;' : '&#9654;' }}</td>
+                            <td>{{ dept.name }}</td>
+                            <td>{{ dept.city }}</td>
+                            <td>{{ dept.mail }}</td>
+                            <td></td>
+                        </tr>
+                        <ng-container *ngIf="dept.expanded">
+                            <tr *ngFor="let emp of dept.employees">
+                                <td class="expandColumn"></td>
+                                <td class="expandColumn"></td>
+                                <td class="listEntryPerson">{{ emp.lastname }}, {{ emp.firstname }}</td>
+                                <td>{{ dept.city }}</td>
+                                <td>{{ emp.mail }}</td>
+                                <td></td>
+                            </tr>
+                        </ng-container>
+                    </ng-container>
+                </ng-container>
+                <ng-container *ngIf="comp.expanded">
+                    <tr *ngFor="let emp of comp.employees">
+                        <td class="expandColumn"></td>
+                        <td colspan="2" class="listEntryPerson">{{ emp.lastname }}, {{ emp.firstname }}</td>
+                        <td>{{ comp.city }}</td>
+                        <td>{{ emp.mail }}</td>
+                        <td></td>
+                    </tr>
+                </ng-container>
+            </ng-container>
+            <!-- // ---------- ENDE TEST ---------- // -->
+
+            <!-- <tr>
+                <td>&#9654; &#9660; Lotteworks & Co.</td>
+                <td>info@lotteworks.de</td>
+                <td>Neuss, Germany</td>
+                <td><mat-icon matListItemIcon class="listIcon" (click)="deleteCompany('comp.id')">delete</mat-icon></td>
+            </tr>
+            <tr class="compUser">
+                <td>&rarr; Lothar Zok</td>
+                <td>lzok@lotteworks.de</td>
+                <td>Neuss, Germany</td>
+                <td><mat-icon matListItemIcon class="listIcon" (click)="deleteCompany('comp.id')">delete</mat-icon></td>
+            </tr> -->
+        </table>
+    </mat-card-content>
+</mat-card>
+
+<button mat-fab color="primary" class="add-user-btn" matTooltip="Add Company" [matTooltipPosition]="'above'"
+    (click)="openDialog()">
+    <!-- Hinweis: Die Position des Tooltips muss mit "'...'" angegeben werden (Doppeltes Hochkomma, einfaches Hochkomma) -->
+    <mat-icon>add_circle_outline</mat-icon>
+</button>
