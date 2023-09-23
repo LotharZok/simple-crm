@@ -21,8 +21,12 @@ export class CompaniesComponent {
 
     }
 
+    showEntry(id: string) {
+        console.log('showEntry wurde geöffnet - id: ', id);
+    }
+
     deleteCompany(id: string) {
-        console.log('deleteCompany wurde gestartet');
+        console.log('deleteCompany wurde gestartet - id: ', id);
         // OpenDialog stoppen
         event?.stopPropagation();
     }
@@ -95,6 +99,11 @@ export class CompaniesComponent {
                     lastname: 'Greiner',
                     firstname: 'Georg',
                     mail: 'greiner@d-e-f.de'
+                },
+                {
+                    lastname: 'Jörgenson',
+                    firstname: 'Jörg',
+                    mail: 'joergenson@d-e-f.de'
                 }
             ],
             departments: [
@@ -108,6 +117,11 @@ export class CompaniesComponent {
                             lastname: 'Holzweiler',
                             firstname: 'Hannah',
                             mail: 'holzweiler@d-e-f.de'
+                        },
+                        {
+                            lastname: 'Ieschger',
+                            firstname: 'Ingeborg',
+                            mail: 'ieschger@d-e-f.de'
                         }
                     ]
                 }

@@ -12,7 +12,7 @@
 
             <!-- // ---------- TEST ---------- // -->
             <ng-container *ngFor="let comp of testCompanies">
-                <tr>
+                <tr (click)="showEntry('comp.id')">
                     <td (click)="comp.expanded = !comp.expanded" class="expandColumn">{{ comp.expanded ? '&#9660;' : '&#9654;' }}</td>
                     <td colspan="2">{{ comp.name }}</td>
                     <td>{{ comp.city }}</td>
@@ -72,5 +72,6 @@
 <button mat-fab color="primary" class="add-user-btn" matTooltip="Add Company" [matTooltipPosition]="'above'"
     (click)="openDialog()">
     <!-- Hinweis: Die Position des Tooltips muss mit "'...'" angegeben werden (Doppeltes Hochkomma, einfaches Hochkomma) -->
-    <mat-icon>add_circle_outline</mat-icon>
+    <!-- <mat-icon>add_circle_outline</mat-icon><mat-icon>add_circle_outline</mat-icon> -->
+    Add Company
 </button>
